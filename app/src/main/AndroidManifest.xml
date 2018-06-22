@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".tab1" />
+        <activity android:name=".Userprofile"></activity>
     </application>
 
 </manifest>
