@@ -37,6 +37,20 @@ public class Logfragment extends Fragment {
         btn = view.findViewById(R.id.button);
         etlusr = view.findViewById(R.id.etlogusern);
         etlpassw = view.findViewById(R.id.etlogpass);
+        Button shbtn=view.findViewById(R.id.shiftbutton);
+        shbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent = new Intent(getActivity(),
+                        tabbedact.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+
+
         Button btnreginlogi = view.findViewById(R.id.btnreginlog);
         btnreginlogi.setOnClickListener(new View.OnClickListener() {
             @Override
