@@ -9,14 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TwoFragment extends Fragment {
-    private RecyclerView mRecyclerView;
+    private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.LayoutManager layoutManager;
+
 
 
     public TwoFragment() {
@@ -28,21 +32,18 @@ public class TwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_two, container, false);
-
-        mRecyclerView = view.findViewById(R.id.my_recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
+        recyclerView = view.findViewById(R.id.my_recycler_view);
+        // of the RecyclerView
+        recyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        // specify an adapter (see also next example)
-        String[] myDataset = new String[]{"jjjj", "yyyy"};
-        mAdapter = new MyAdapter(myDataset);
-        mRecyclerView.setAdapter(mAdapter);
-        return view;
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        List<String> input = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            input.add("Nike165" + i);
+        }// define an adapter
+        mAdapter = new MyAdapter(input);
+        recyclerView.setAdapter(mAdapter);
+    return view;
     }
 }
