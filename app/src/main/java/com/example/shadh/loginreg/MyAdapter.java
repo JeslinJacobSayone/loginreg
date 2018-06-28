@@ -1,16 +1,26 @@
 package com.example.shadh.loginreg;
 
+import android.annotation.TargetApi;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.lang.annotation.Target;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> values;
+    private JSONArray values;
+    Context context;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -21,30 +31,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public TextView txtFooter;
         public Button deletebtn;
         public View layout;
+        public ImageView listimages;
+
 
         public ViewHolder(View v) {
             super(v);
-            layout = v;
+//            layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            deletebtn=v.findViewById(R.id.delbtn);
+            deletebtn = v.findViewById(R.id.delbtn);
+            listimages = v.findViewById(R.id.icon);
+
 
         }
     }
 
-    public void add(int position, String item) {
-        values.add(position, item);
-        notifyItemInserted(position);
-    }
-
+    @TargetApi(19)
     public void remove(int position) {
         values.remove(position);
+//        listcont.
+        MyAdapter.this.notifyDataSetChanged();
         notifyItemRemoved(position);
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<String> myDataset) {
-        values = myDataset;
+    public MyAdapter(JSONArray data) {
+
+        values = data;
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,26 +79,52 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtHeader.setText(name);
+        try {
+            JSONObject dat = values.getJSONObject(position);
+
+            Integer int1 = dat.getInt("image_id");
+            String text = dat.getString("description");
+            holder.listimages.setImageResource(int1);
+            holder.txtHeader.setText(text);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        // final String name = values.get(position);
+
         holder.deletebtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                //     PopupMenu popup = new PopupMenu(context,v);
+                //  popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                // popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                //  @Override
+                //     public boolean onMenuItemClick(MenuItem item) {
                 remove(position);
+
+                //   return true;
+                //   }
+                //   });
+                //  popup.show();
             }
         });
 
-        holder.txtFooter.setText("Model: " + name);
+        //   holder.txtFooter.setText("Model: " + name);
     }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return values.size();
+        return values.length();
     }
-
-
-
-
-
+   /* private Integer[] listcont = {
+            R.drawable.shoe1, R.drawable.shoe2,
+            R.drawable.shoe3, R.drawable.shoe4,
+            R.drawable.shoe5, R.drawable.shoe6,
+            R.drawable.shoe7, R.drawable.shoe8,
+            R.drawable.shoe9
+    };*/
 }
