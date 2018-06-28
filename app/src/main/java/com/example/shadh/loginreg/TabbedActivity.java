@@ -1,5 +1,6 @@
 package com.example.shadh.loginreg;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,16 +8,42 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class tabbedact extends AppCompatActivity {
+import static com.example.shadh.loginreg.R.menu.optionsmenu;
+
+public class TabbedActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.optionsmenu,menu);
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                this.startActivity(intent);
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +51,8 @@ public class tabbedact extends AppCompatActivity {
         setContentView(R.layout.activity_tabbedact);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

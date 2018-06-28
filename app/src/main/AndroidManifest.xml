@@ -19,7 +19,8 @@
         <activity android:name=".tab1" />
         <activity android:name=".Userprofile" />
         <activity android:name=".Tabbedact" />
-        <activity android:name=".tabbedact"></activity>
+        <activity android:name=".TabbedActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>

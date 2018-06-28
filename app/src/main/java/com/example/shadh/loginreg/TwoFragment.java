@@ -13,9 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,7 +43,7 @@ public class TwoFragment extends Fragment {
         JSONObject data1=new JSONObject();
         try {
             data1.put("image_id",R.drawable.shoe1);
-            data1.put("description","fhfhfhfhfhfh");
+            data1.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -54,7 +51,7 @@ public class TwoFragment extends Fragment {
         JSONObject data2=new JSONObject();
         try {
             data2.put("image_id",R.drawable.shoe2);
-            data2.put("description","fhfhfhf222hfhfh");
+            data2.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -62,7 +59,7 @@ public class TwoFragment extends Fragment {
         JSONObject data3=new JSONObject();
         try {
             data3.put("image_id",R.drawable.shoe3);
-            data3.put("description","fhfhfhf3333hfhfh");
+            data3.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -70,7 +67,7 @@ public class TwoFragment extends Fragment {
         JSONObject data4=new JSONObject();
         try {
             data4.put("image_id",R.drawable.shoe4);
-            data4.put("description","fhfhfhfhfhfh");
+            data4.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -79,7 +76,7 @@ public class TwoFragment extends Fragment {
         JSONObject data5=new JSONObject();
         try {
             data5.put("image_id",R.drawable.shoe5);
-            data5.put("description","fhfhfhfhfhfh");
+            data5.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -87,7 +84,7 @@ public class TwoFragment extends Fragment {
         JSONObject data6=new JSONObject();
         try {
             data6.put("image_id",R.drawable.shoe6);
-            data6.put("description","fhfh6666fhfhfhfh");
+            data6.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -96,7 +93,7 @@ public class TwoFragment extends Fragment {
         JSONObject data7=new JSONObject();
         try {
             data7.put("image_id",R.drawable.shoe7);
-            data7.put("description","fhfhfhfh7777fhfh");
+            data7.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -105,7 +102,7 @@ public class TwoFragment extends Fragment {
         JSONObject data8=new JSONObject();
         try {
             data8.put("image_id",R.drawable.shoe8);
-            data8.put("description","fhfhfhfh8888fhfh");
+            data8.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -113,7 +110,7 @@ public class TwoFragment extends Fragment {
         JSONObject data9=new JSONObject();
         try {
             data9.put("image_id",R.drawable.shoe9);
-            data9.put("description","fhfhfhfhfhfh");
+            data9.put("description","NIKE 5944E61");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -133,7 +130,7 @@ public class TwoFragment extends Fragment {
             input.add("Nike165" + i);
         }// define an adapter
         */
-      mAdapter = new MyAdapter(data);
+      mAdapter = new ListElementAdapter(data,getContext());
 
         recyclerView.setAdapter(mAdapter);
     return view;

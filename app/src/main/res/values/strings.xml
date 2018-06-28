@@ -3,4 +3,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">@string/action_settings</string>
+    <string-array name="storage">
+        <item>My Videos</item>
+        <item>Downloads</item>
+        <item>Instagram</item>
+    </string-array>
+    <string-array name="Quality">
+        <item>360p</item>
+        <item>480p</item>
+        <item>720p</item>
+    </string-array>
+    <string-array name="Ringtone">
+        <item>Blow Bubble</item>
+        <item>Numb</item>
+        <item>In the End</item>
+    </string-array>
+    <string name="aboutdesc">Android 6.0 "Marshmallow is the sixth major version of the Android operating system and the 13th version of Android. First released as a beta build on May 28, 2015, it was officially released on October 5, 2015, with Nexus devices being the first to receive the update.</string>
+    <string name="version">Version</string>
+    <string name="faq">FAQ</string>
+    <string name="privacypolicy">Privacy policy</string>
+    <string name="termsandconditions">Terms and conditions</string>
+
 </resources>

@@ -15,10 +15,8 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.lang.annotation.Target;
-import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class ListElementAdapter extends RecyclerView.Adapter<ListElementAdapter.ViewHolder> {
     private JSONArray values;
     Context context;
 
@@ -32,6 +30,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public Button deletebtn;
         public View layout;
         public ImageView listimages;
+
 
 
         public ViewHolder(View v) {
@@ -50,20 +49,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void remove(int position) {
         values.remove(position);
 //        listcont.
-        MyAdapter.this.notifyDataSetChanged();
+        ListElementAdapter.this.notifyDataSetChanged();
         notifyItemRemoved(position);
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(JSONArray data) {
+    public ListElementAdapter(JSONArray data, Context context) {
+        this.context=context;
 
         values = data;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public ListElementAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                            int viewType) {
         // create a new view
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
@@ -97,17 +97,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
 
-                //     PopupMenu popup = new PopupMenu(context,v);
-                //  popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-                // popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                //  @Override
-                //     public boolean onMenuItemClick(MenuItem item) {
+                PopupMenu popup = new PopupMenu(context,v);
+                  popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                  @Override
+                   public boolean onMenuItemClick(MenuItem item) {
                 remove(position);
 
-                //   return true;
-                //   }
-                //   });
-                //  popup.show();
+                   return true;
+                   }
+                   });
+                  popup.show();
             }
         });
 

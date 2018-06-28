@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="General">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/storage"
+            android:entryValues="@array/storage"
+            android:key="list_preference_1"
+            android:summary="My VIdeos"
+            android:title="Default Storage" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="check_box_preference_1"
+        android:summary="Upload the videos when wifi is available"
+        android:title="Auto Upload" />
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/Quality"
+        android:entryValues="@array/Quality"
+        android:key="list_preference_1"
+        android:summary="SPecify video when wifi is available"
+        android:title="List preference" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="notification_category"
+        android:title="Notification">
+        />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_1"
+            android:title="New message notification" />
+
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/Ringtone"
+        android:entryValues="@array/Ringtone"
+        android:key="list_preference_2"
+        android:summary="Blow bubble"
+        android:title="Ringtone" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_preference_1"
+        android:title="Vibrate" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="about_category"
+        android:title="About"
+        android:summary="@string/aboutdesc">
+        <Preference
+            android:key="version"
+            android:title="@string/version"
+            android:summary="5.1"
+            ></Preference>
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="Got any queries? We are happy to help!"
+            android:title="Send Feedback" />
+
+        <Preference
+            android:key="faq"
+            android:title="@string/faq"
+            android:summary="View frequently asked questions">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://www.gcflearnfree.org/androidbasics/android-frequently-asked-questions/1/" />
+
+        </Preference>
+        <Preference
+            android:key="pp"
+            android:title="@string/privacypolicy">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://www.iubenda.com/blog/privacy-policy-for-android-app/" />
+
+
+        </Preference>
+        <Preference
+            android:key="tandc"
+            android:title="@string/termsandconditions">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://developer.android.com/studio/terms" />
+
+        </Preference>
+
+
+    </PreferenceCategory>
+
+
+
+
+</PreferenceScreen>
